@@ -1,19 +1,22 @@
 package com.bridgelabz.restapiexample.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class RestApiCallsController {
 
-    @GetMapping("/")
+    @GetMapping("/hello")
     public String sayHello() {
         return "Hello from BridgeLabz. This is Hello message from Rest call";
     }
 
-    @GetMapping("/queryParam")
+    @GetMapping("/hello/query")
     public String getParamMessage(@RequestParam String name) {
         return "Hello " + name + " from BridgeLabz. This is Param message";
+    }
+
+    @GetMapping("/hello/param/{name}")
+    public String getPathMessage(@PathVariable String name) {
+        return "Hello " + name + " from BridgeLabz. This is Path message";
     }
 }

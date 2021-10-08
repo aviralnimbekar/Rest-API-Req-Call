@@ -25,4 +25,9 @@ public class RestApiCallsController {
     public String getJsonMessage(@RequestBody Person person) {
         return "Hello " + person.getFname() + " " + person.getLname() + " from BridgeLabz. This is post message";
     }
+
+    @PutMapping("hello/put/{fname}")
+    public String getPutMessage(@PathVariable String fname, @RequestParam String lname) {
+        return "Hello " + fname + " " + lname + " from BridgeLabz. This is put message";
+    }
 }
